@@ -1,6 +1,6 @@
-# code_extension;
+# __code_extension__;
 
- __매주 수요일 오전 11시 강남역<br/>
+ 매주 수요일 오전 11시 강남역<br/>
  모임 종료 전 본인의 강의 수강 계획 설정<br/>
  강의 수강 후 진행 과정 공개<br/>
  공통 과제 git upload<br/>
