@@ -3,7 +3,7 @@
 using namespace std;
 
 /*
-나머지 
+나머지
 (A + B)%C == (A%B + B%C)%C
 (A X B)%C == (A%B X B%C)%C
 */
@@ -21,6 +21,7 @@ int main() {
 			g = i;
 		}
 	}
+	cout << g;
 }
 
 
