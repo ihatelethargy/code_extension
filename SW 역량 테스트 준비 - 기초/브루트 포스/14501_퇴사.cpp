@@ -39,3 +39,51 @@ int main()
 
     cout << ans << endl;
 }
+
+/* -------------------------------------------------- */
+
+// Solution using recursion (brute force)
+
+#include <bits/stdc++.h>
+
+#define endl "\n"
+#define fastIO                   \
+    ios::sync_with_stdio(false); \
+    cin.tie(NULL)
+
+using namespace std;
+
+int n;
+vector<pair<int, int>> schedule;
+int ans;
+
+void input()
+{
+    cin >> n;
+    schedule.resize(n + 1);
+    for (int i = 0; i < n; i++)
+        cin >> schedule[i].first >> schedule[i].second;
+}
+
+void search(int idx, int sum)
+{
+    if (idx == n)
+    {
+        ans = max(ans, sum);
+        return;
+    }
+
+    if (idx + 1 <= n)
+        search(idx + 1, sum);
+
+    if (auto &[t, p] = schedule[idx]; idx + t <= n)
+        search(idx + t, sum + p);
+}
+
+int main()
+{
+    fastIO;
+    input();
+    search(0, 0);
+    cout << ans << endl;
+}
