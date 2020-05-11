@@ -13,19 +13,16 @@ int main()
     int e, s, m;
     cin >> e >> s >> m;
 
-    int ans = 1;
+    e--;
+    s--;
+    m--;
 
-    while (true)
+    for (int n = 0;; n++)
     {
-        bool _e = ans % 15 == e || (ans % 15 == 0 && e == 15);
-        bool _s = ans % 28 == s || (ans % 28 == 0 && s == 28);
-        bool _m = ans % 19 == m || (ans % 19 == 0 && m == 19);
-
-        if (_e && _s && _m)
+        if (n % 15 == e && n % 28 == s && n % 19 == m)
+        {
+            cout << n + 1 << endl;
             break;
-
-        ans++;
+        }
     }
-
-    cout << ans << endl;
 }
