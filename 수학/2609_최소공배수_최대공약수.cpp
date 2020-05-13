@@ -2,28 +2,19 @@
 
 using namespace std;
 
-bool prime(int n) {
-	if (n < 2) {
-		return false;
+int gcd(int a, int b) {
+	if (b == 0) {
+		return a;
 	}
-	for (int i = 2; i * i <= n; i++)
-		if (n % i == 0)
-			return false;
-	return true;
+	else {
+		return gcd(b, a % b);
+	}
 }
 
 int main() {
-	int cnt = 0;
-	int n;
-	int num[100];
-
-	for (int i = 0; i < n; i++) cin >> num[i];
-
-	for (int i = 0; i < n; i++) {
-		if (prime(num[i]) == 1)
-			cnt++;
-	}
-
-	cout << cnt << endl;
-	
+	int a, b;
+	int lcm;
+	cin >> a >> b;
+	cout << gcd(a, b) << endl;
+	cout << (a * b) / gcd(a, b);
 }
