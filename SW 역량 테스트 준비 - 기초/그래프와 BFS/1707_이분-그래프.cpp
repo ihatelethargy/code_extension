@@ -28,7 +28,6 @@ void check()
         if (color[i] == 'U' && !dfs(i, 'R'))
         {
             cout << "NO" << endl;
-            ;
             return;
         }
     }
