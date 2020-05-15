@@ -1,5 +1,6 @@
 // queue 1개로도 풀 수 있는 문제
 // bfs 수행시 순간이동과 앞, 뒤 이동이 충돌하지 않음
+// min heap을 사용해도 되지만 이 경우에는 dequeue나 queue가 더 효율적일 듯
 
 #include <bits/stdc++.h>
 #define endl "\n"
