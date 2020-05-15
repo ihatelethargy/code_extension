@@ -1,36 +1,33 @@
-#include <iostream>
-#include <algorithm>
-using namespace std;
+#include <cstdio>
 
-bool prime(int n) {
-	if (n < 2) {
-		return false;
-	}
-	for (int i = 2;i <= n / 2;i++) {
-		if (n%i == 0) {
-			return false;
-		}
-	}
-	return true;
-}
+const int MAX = 1000000;
+bool prime[MAX + 1];
+
+
 int main() {
-	int counter = 0;
-	int *arr = new int[100001];
-	arr[counter] = 1;
-
-	while (1) {
-		if (arr[counter - 1] == 0) { break; }
-		cin >> arr[counter];
-		counter++;
-	}
-
-	for (int i = 0;i < counter - 1;i++) {
-		for (int j = 2; j < arr[i];j++) {
-			if (prime(j) == 1 && prime(arr[i] - j) == 1) {
-				cout << arr[i] << " = " << j << " + " << arr[i] - j << endl;
-				break;
+	prime[1] = true;
+	for (int i = 2;i*i <= MAX;i++) {
+		if (!prime[i]) {
+			for (int j = i * i;j <= MAX;j += i) {
+				prime[j] = true;
 			}
 		}
 	}
-	delete[]arr;
+
+	while (1) {
+		int m;
+		scanf("%d", &m);
+		if (m == 0) break;
+		for (int i = 2;i <= MAX;i++) {
+			if (prime[i] == false) {
+				int j = m - i;
+				if (!prime[j]) {
+					printf("%d = %d + %d\n", m, i, j);
+					break;
+				}
+			}
+		}
+	}
+
+	return 0;
 }
